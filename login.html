@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="loginCSS.css">
+    <title>Login</title>
+</head>
+<body>
+    <!--Principais botões-->
+    <div class="fundo_btn">
+        <figure>
+            <img src="HealthIA.png" alt="Health-IA Logo">
+        </figure>
+        <button class="btn_branco" id="btn_login">Login</button>
+        <button class="btn_branco" id="btn_home">Home</button>
+    </div>
+
+    <!--LOGIN-->
+    <div class="div_login ocultar">
+        <img src="HealthIA.png" alt="Health-IA Logo" class="logo"> <!-- Logo -->
+        <h1>Health-IA Login</h1>
+
+        <input type="email" class="input-field" placeholder="E-mail Corporativo" required>
+
+        <input type="password" class="input-field" placeholder="Senha" required>
+
+        <button type="submit" class="button">Entrar</button>
+
+        
+        <div id="feedback" class="mt-3"></div>
+        <a href="cadastroFelipe.html" class="link">Não tem uma conta?</a>
+
+        <div class="footer">
+            <p>© 2025 Health-IA</p>
+        </div>
+    </div>
+
+    <!--Parte para HOME -->
+    <div class="div_home ocultar" id="div_home">
+        <h1 class="d_p">Home Health-IA</h1>
+        <h1 class="h1V">
+            <br>
+            Já fez o login? 
+            <br>
+            Volte para a pagina inicial
+        </h1>
+        <button class="btn" id="btn_candidate2"><a href="faleconosco.html" target="_blank">Voltar para a tela inicial</a></button>
+    </div>
+</body>
+
+
+<script>
+    document.getElementById("btn_home").addEventListener("click", () => {
+        document.getElementById("div_login").classList.add("ocultar");
+        document.getElementById("div_home").classList.toggle("ocultar");
+    });
+
+    document.getElementById("btn_login").addEventListener("click", () => {
+        document.getElementById("div_login").classList.toggle("ocultar");
+        document.getElementById("div_home").classList.add("ocultar");
+    });
+
+    document.getElementById("btn_salvar_cadastro").addEventListener("click", async ()=>{
+        // primeira etapa- pegar as informaçoes dos inputs 
+        const nome_compl = document.getElementById("input_nome_lg").value
+        const email = document.getElementById("input_email_lg").value
+        const senha = document.getElementById("input_senha_cadastro").value
+
+        // segunda etapa- fazer a requisição para o back-end o que o thunder client não mostra oq faz
+        // fetch funciona pq vai passar o endereço da requisição
+        const resposta = await fetch (`http://localhost:3000/login`,{
+            method:"POST",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json" // o tipo de conteudo que estou mandando é o JSON
+            },
+            body:JSON.stringify({
+                "nome_compl":nome_compl,
+                "email":email,
+                "senha":senha})
+        })
+        // terceira etapa - pegar a resposta do back-end
+        if(resposta.ok){
+            const dados = await resposta.json()
+            document.getElementById("resultado_cadastro").innerText = dados.resposta
+        }else{
+
+        }
+    })
+</script>
+</html>
