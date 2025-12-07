@@ -10,7 +10,7 @@ body {
     height: 100vh;
 }
 
-.div_login {
+.div_loginF {
     text-align: center;
     width: 400px;
     background-color: #FFFFFF; /* Cor de fundo branco */
@@ -73,13 +73,34 @@ h1 {
     /* evita espaço extra abaixo */
 }
 
+.fundo_btn {
+    position: fixed;             /* Fixa os botões na tela, para que não rolem com a página */
+    top: 0%;                     /* Define a distância do topo da tela */
+    left: 50%;                   /* Centraliza horizontalmente em relação à tela */
+    transform: translateX(-50%); /* Ajuste fino para centralizar corretamente */
+    z-index: 10;                 /* Define a camada acima do conteúdo da página */
+   
+    border: 2px solid #E91E63; /* Borda rosa escuro */
+    padding: 20px;               /* Espaçamento interno da caixa dos botões */
+    background-color: rgba(255, 255, 255, 0.95); /* Fundo rosa claro com leve transparência */
+    border-radius: 12px;         /* Arredonda os cantos da caixa */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4); /* Sombra da caixa mais pronunciada */
+    text-align: center;          /* Centraliza o texto dentro da caixa */
+    display: flex;               /* Usa flexbox para organizar os botões */
+    flex-wrap: wrap;             /* Permite que os botões quebrem linha se não houver espaço */
+    justify-content: center;     /* Centraliza os botões dentro da caixa */
+    gap: 12px;                   /* Espaçamento entre os botões */
+    width: 100%;
+    margin: 0px;
+}
+
 .footer {
     margin-top: 30px;
     font-size: 1em;
     color: #000000;
 }
 
-.div_home{
+.div_homeF{
     border: 2px solid #E91E63; /* Borda rosa escuro */
     padding: 15px;               /* Espaçamento interno das divs */
     margin-top: 180px;           /* Espaço acima das divs, abaixo dos botões fixos */
