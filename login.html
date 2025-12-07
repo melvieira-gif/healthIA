@@ -13,12 +13,12 @@
         <figure>
             <img src="HealthIA.png" alt="Health-IA Logo">
         </figure>
-        <button class="btn_branco" id="btn_login">Login</button>
-        <button class="btn_branco" id="btn_home">Home</button>
+        <button class="btn_branco" id="btn_loginF">Login</button>
+        <button class="btn_branco" id="btn_homeF">Home</button>
     </div>
 
     <!--LOGIN-->
-    <div class="div_login ocultar">
+    <div class="div_loginF ocultar" id="div_loginF">
         <img src="HealthIA.png" alt="Health-IA Logo" class="logo"> <!-- Logo -->
         <h1>Health-IA Login</h1>
 
@@ -38,7 +38,7 @@
     </div>
 
     <!--Parte para HOME -->
-    <div class="div_home ocultar" id="div_home">
+    <div class="div_homeF ocultar" id="div_homeF">
         <h1 class="d_p">Home Health-IA</h1>
         <h1 class="h1V">
             <br>
@@ -46,20 +46,20 @@
             <br>
             Volte para a pagina inicial
         </h1>
-        <button class="btn" id="btn_candidate2"><a href="faleconosco.html" target="_blank">Voltar para a tela inicial</a></button>
+        <button class="btn" id="btn_candidate2"><a href="faleconosco.html" >Voltar para a tela inicial</a></button>
     </div>
 </body>
 
 
 <script>
-    document.getElementById("btn_home").addEventListener("click", () => {
-        document.getElementById("div_login").classList.add("ocultar");
-        document.getElementById("div_home").classList.toggle("ocultar");
+    document.getElementById("btn_homeF").addEventListener("click", () => {
+        document.getElementById("div_loginF").classList.add("ocultar");
+        document.getElementById("div_homeF").classList.toggle("ocultar");
     });
 
-    document.getElementById("btn_login").addEventListener("click", () => {
-        document.getElementById("div_login").classList.toggle("ocultar");
-        document.getElementById("div_home").classList.add("ocultar");
+    document.getElementById("btn_loginF").addEventListener("click", () => {
+        document.getElementById("div_loginF").classList.toggle("ocultar");
+        document.getElementById("div_homeF").classList.add("ocultar");
     });
 
     document.getElementById("btn_salvar_cadastro").addEventListener("click", async ()=>{
